@@ -13,7 +13,7 @@ const Body = () => {
     );
     const json = await data.json();
     const newData =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants[0]?.info;
 
     setResData(newData);
