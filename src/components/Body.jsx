@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestaurentCard from "./RestaurentCard";
 
 const Body = () => {
-  const [resData, setResData] = useState({});
+  const [resData, setResData] = useState([]);
   useEffect(() => {
     fetchData();
   }, []);
@@ -12,18 +12,17 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    const newData =
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants[0]?.info;
 
-    setResData(newData);
-    console.log(newData);
-
-    return json;
+    setResData(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
+
   return (
-    <div>
-      <RestaurentCard resData={resData} />
+    <div className="grid grid-cols-12 gap-4 mx-4 mt-4">
+      {resData.map((restaurents, index) => (
+        <RestaurentCard resData={restaurents} key={index} />
+      ))}
     </div>
   );
 };
