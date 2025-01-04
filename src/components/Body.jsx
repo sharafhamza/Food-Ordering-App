@@ -22,7 +22,7 @@ const Body = () => {
       <button
         onClick={() => {
           const filterData = listOfRestaurants.filter((res) => {
-            res.info.avgRating > 4;
+            Number(res?.info?.avgRating) > 4.4;
           });
 
           setShowTopRestaurants(!showTopRestaurants);
