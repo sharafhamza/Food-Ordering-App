@@ -3,6 +3,7 @@ import RestaurentCard from "./RestaurentCard";
 
 const Body = () => {
   const [resData, setResData] = useState([]);
+  const [showTopRestaurants, setShowTopRestaurants] = useState(false);
   useEffect(() => {
     fetchData();
   }, []);
@@ -19,11 +20,19 @@ const Body = () => {
   };
 
   return (
-    <div className="grid grid-cols-12 gap-4 mx-4 mt-4">
-      {resData.map((restaurents, index) => (
-        <RestaurentCard resData={restaurents} key={index} />
-      ))}
-    </div>
+    <>
+      <button
+        onClick={() => setShowTopRestaurants(!showTopRestaurants)}
+        className="bg-yellow-500 text-white px-6 py-2 ml-4 mt-4 rounded-full font-semibold hover:bg-yellow-600 transition-all duration-300"
+      >
+        {showTopRestaurants ? "Show All Restaurants" : "Top Restaurants (4.2+)"}
+      </button>
+      <div className="grid grid-cols-12 gap-4 mx-4 mt-4">
+        {resData.map((restaurents, index) => (
+          <RestaurentCard resData={restaurents} key={index} />
+        ))}
+      </div>
+    </>
   );
 };
 
