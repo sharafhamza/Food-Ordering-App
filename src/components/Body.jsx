@@ -37,7 +37,7 @@ const Body = () => {
         {showTopRestaurants ? "Show All Restaurants" : "Top Restaurants (4.2+)"}
         Restaurent
       </button> */}
-      <div class="flex items-center max-w-lg mx-auto bg-white shadow-md rounded-full overflow-hidden">
+      <div class="flex items-center max-w-lg mx-auto bg-white shadow-md rounded-full overflow-hidden mt-7">
         <input
           type="text"
           placeholder="Search for food, dishes, or restaurants..."
