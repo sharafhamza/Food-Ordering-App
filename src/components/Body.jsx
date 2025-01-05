@@ -33,6 +33,16 @@ const Body = () => {
         {showTopRestaurants ? "Show All Restaurants" : "Top Restaurants (4.2+)"}
         Restaurent
       </button>
+      <div class="flex items-center max-w-lg mx-auto bg-white shadow-md rounded-full overflow-hidden">
+        <input
+          type="text"
+          placeholder="Search for food, dishes, or restaurants..."
+          class="flex-grow px-4 py-2 text-gray-700 focus:outline-none"
+        />
+        <button class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition duration-300">
+          Search
+        </button>
+      </div>
       <div className="grid grid-cols-12 gap-4 mx-4 mt-4">
         {listOfRestaurants.map((restaurents, index) => (
           <RestaurentCard resData={restaurents} key={index} />
