@@ -18,7 +18,7 @@ const Header = () => {
             <li>
               <a
                 href="#home"
-                className="text-white text-lg font-medium hover:text-yellow-400 transition-all duration-300"
+                className="text-white text-lg font-medium hover:text-orange-400 transition-all duration-300"
               >
                 Home
               </a>
@@ -26,7 +26,7 @@ const Header = () => {
             <li>
               <a
                 href="#menu"
-                className="text-white text-lg font-medium hover:text-yellow-400 transition-all duration-300"
+                className="text-white text-lg font-medium hover:text-orange-400 transition-all duration-300"
               >
                 Menu
               </a>
@@ -34,7 +34,7 @@ const Header = () => {
             <li>
               <a
                 href="#about"
-                className="text-white text-lg font-medium hover:text-yellow-400 transition-all duration-300"
+                className="text-white text-lg font-medium hover:text-orange-400 transition-all duration-300"
               >
                 About Us
               </a>
@@ -42,7 +42,7 @@ const Header = () => {
             <li>
               <a
                 href="#contact"
-                className="text-white text-lg font-medium hover:text-yellow-400 transition-all duration-300"
+                className="text-white text-lg font-medium hover:text-orange-400 transition-all duration-300"
               >
                 Contact
               </a>
@@ -54,7 +54,7 @@ const Header = () => {
         <div className="flex items-center">
           <a
             href="#order"
-            className="bg-yellow-500 text-white px-6 py-2 rounded-full text-lg font-semibold hover:bg-yellow-600 transition-all duration-300"
+            className="bg-orange-500 text-white px-6 py-2 rounded-full text-lg font-semibold hover:bg-orange-600 transition-all duration-300"
           >
             Order Now
           </a>
