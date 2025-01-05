@@ -12,9 +12,9 @@ const Body = () => {
     const data = await fetch(SWIGGY_API_URL);
     const json = await data.json();
 
-    // setListOfRestaurants(
-    //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    // );
+    setListOfRestaurants(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   return (
