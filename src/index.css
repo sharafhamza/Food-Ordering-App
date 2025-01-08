@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "nova";
+  src: url("./fonts/Proxima Nova Alt Black.otf") format("truetype"); /* Adjust the path as needed */
+  font-weight: normal;
+  font-style: normal;
+}
