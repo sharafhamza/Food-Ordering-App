@@ -1,10 +1,11 @@
 import Header from "./components/Header/Header";
-
+import Body from "./components/Body";
 function App() {
   return (
-    <h1>
+    <>
       <Header />
-    </h1>
+      <Body />
+    </>
   );
 }
 
