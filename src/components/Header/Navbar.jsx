@@ -34,13 +34,15 @@ const Navbar = () => {
     },
   ];
   return (
-    <ul className="flex">
+    <ul className="flex gap-6">
       {navItems.map((item, index) => {
         const IconComponent = item.icon;
         return (
-          <li key={index} className="flex items-center text-black">
-            <IconComponent size={18} />
-            <span className="text-base font-medium">{item.name}</span>
+          <li key={index} className="flex  items-center text-menu">
+            <div className="flex gap-1 items-center">
+              <IconComponent size={20} />
+              <span className="text-base font-medium">{item.name}</span>
+            </div>
           </li>
         );
       })}

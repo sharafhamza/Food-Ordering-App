@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         custom: ["nova", "sans-serif"], // Add your custom font here
       },
+      colors: {
+        menu: "#3d4152",
+      },
     },
   },
   plugins: [],

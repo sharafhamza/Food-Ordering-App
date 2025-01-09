@@ -12,7 +12,7 @@ const Header = () => {
             <img src={LOGO} alt="Logo" />
           </div>
           <div className="flex items-center justify-between w-[70px] cursor-pointer">
-            <span className="inline-block border-b-2 font-bold text-sm border-black ">
+            <span className="inline-block border-b-2 font-bold text-sm text-menu border-black ">
               Other
             </span>
             <IoIosArrowDown className="text-orange-500 text-[18px]" />
