@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+
 import OnMindSlider from "./onMindSlider/OnMindSlider";
 const fetchData = async () => {
   const [resInfo, setResInfo] = useState([]);
