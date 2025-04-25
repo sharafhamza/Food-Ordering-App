@@ -1,23 +1,40 @@
 import { useState, useEffect } from "react";
 import OnMindSlider from "../components/onMindSlider/onMindSlider";
+import Card from "./card/Card";
 const Body = () => {
   const [resInfo, setResInfo] = useState([]);
+  const [cardData, setCardData] = useState([]);
+
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5743545&lng=88.3628734&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
+
     const json = await data.json();
     setResInfo(
       json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info || []
+    );
+    setCardData(
+      json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || []
     );
   };
 
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(resInfo);
+  console.log(cardData);
 
-  return <OnMindSlider resInfo={resInfo} />;
+  return (
+    <div className="max-w-container mx-auto">
+      <OnMindSlider resInfo={resInfo} />
+      <div className="flex flex-wrap gap-3">
+        {cardData.map((card, index) => (
+          <Card data={card?.info} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Body;

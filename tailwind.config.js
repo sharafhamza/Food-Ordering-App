@@ -9,6 +9,9 @@ export default {
       colors: {
         menu: "#3d4152",
       },
+      maxWidth: {
+        container: "1400px",
+      },
     },
   },
   plugins: [],
