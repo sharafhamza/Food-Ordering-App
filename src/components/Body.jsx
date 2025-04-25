@@ -28,7 +28,7 @@ const Body = () => {
   return (
     <div className="max-w-container mx-auto">
       <OnMindSlider resInfo={resInfo} />
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-x-3 gap-y-5">
         {cardData.map((card, index) => (
           <Card data={card?.info} />
         ))}
