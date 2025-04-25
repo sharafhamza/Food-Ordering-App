@@ -6,7 +6,7 @@ import { LOGO } from "../../utils/constant";
 const Header = () => {
   return (
     <div className="shadow-lg shadow-[#ddd]/40">
-      <div className="w-[90%] mx-auto font-custom flex items-center justify-between ">
+      <div className="w-[70%] mx-auto font-custom flex items-center justify-between ">
         <div className="flex gap-8 py-4 ">
           <div className="w-20">
             <img src={LOGO} alt="Logo" />

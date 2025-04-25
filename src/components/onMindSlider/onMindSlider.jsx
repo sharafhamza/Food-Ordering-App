@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 
-const OnMindSlider = () => {
+const OnMindSlider = ({ resInfo }) => {
   const [value, setValue] = useState(0);
 
   const handleNext = () => {
