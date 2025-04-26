@@ -3,6 +3,7 @@ import OnMindSlider from "../components/onMindSlider/onMindSlider";
 import Card from "./card/Card";
 import { Search } from "lucide-react";
 import ShimmerCard from "./shimmerCard/ShimmerCard";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [resInfo, setResInfo] = useState([]);
@@ -79,7 +80,9 @@ const Body = () => {
           <p>Search item not found</p>
         ) : (
           filterData.map((card) => (
-            <Card key={card?.info?.id} data={card?.info} />
+            <Link to={"restaurents/" + card?.info?.id} className="w-[24%]">
+              <Card key={card?.info?.id} data={card?.info} />
+            </Link>
           ))
         )}
       </div>

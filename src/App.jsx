@@ -16,7 +16,7 @@ function App() {
           element: <Body />,
         },
         {
-          path: "/restaurents/:resId",
+          path: "restaurents/:resId",
           element: <CardSingle />,
         },
       ],

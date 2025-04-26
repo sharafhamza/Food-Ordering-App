@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Single_Url, Image_Url } from "../../utils/constant"; // Assuming you have Image_Url
 import { useParams } from "react-router-dom";
-import { Image_Url } from "../../utils/constant";
-import useRestaurentData from "../hooks/useRestaurentData";
 
-const CardSingle = async () => {
+const CardSingle = () => {
+  const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
-  const [restaurant, setRestaurant] = useState(null);
 
-  const resInfo = useRestaurentData(resId);
-  setRestaurant(resInfo);
+  const fetchData = async () => {
+    const data = await fetch(Single_Url + resId);
+    const json = await data.json();
+    setResInfo(json?.data?.cards[2]?.card?.card);
+  };
 
-  if (!restaurant) {
-    return <div className="text-center mt-10">Loading...</div>;
+  useEffect(() => {
+    fetchData();
+  }, [resId]);
+
+  if (!resInfo) {
+    return (
+      <div className="text-center mt-10 text-xl font-semibold">Loading...</div>
+    );
   }
 
   const {
@@ -22,30 +30,41 @@ const CardSingle = async () => {
     cloudinaryImageId,
     locality,
     aggregatedDiscountInfoV3,
-    description,
-  } = restaurant || {};
+    costForTwoMessage,
+  } = resInfo?.info || {};
 
   return (
-    <div className="max-w-4xl mx-auto p-5">
+    <div className="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-xl shadow-md">
+      {/* Image */}
       <img
         src={`${Image_Url}${cloudinaryImageId}`}
         alt={name}
-        className="w-full h-80 object-cover rounded-xl"
+        className="w-full h-72 object-cover rounded-lg"
       />
-      <h1 className="text-3xl font-bold mt-4">{name}</h1>
-      <div className="flex items-center text-lg text-gray-600 mt-2">
-        <span className="text-green-600 font-bold mr-2">★ {avgRating}</span>
-        <span>• {sla?.slaString}</span>
+
+      {/* Name & Info */}
+      <div className="mt-6">
+        <h1 className="text-3xl font-bold">{name}</h1>
+        <p className="text-gray-600 mt-2">{cuisines?.join(", ")}</p>
+        <p className="text-gray-500">{locality}</p>
+
+        {/* Rating & Time & Cost */}
+        <div className="flex flex-wrap gap-4 mt-4 text-gray-700">
+          <div className="flex items-center gap-1">
+            <span className="text-green-600 font-bold">★ {avgRating}</span>
+          </div>
+          <div>• {sla?.slaString}</div>
+          <div>• {costForTwoMessage}</div>
+        </div>
+
+        {/* Offer */}
+        {aggregatedDiscountInfoV3?.header && (
+          <div className="mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md font-semibold text-center">
+            {aggregatedDiscountInfoV3.header}{" "}
+            {aggregatedDiscountInfoV3.subHeader}
+          </div>
+        )}
       </div>
-      <p className="text-md text-gray-500 mt-2">{cuisines?.join(", ")}</p>
-      <p className="text-md text-gray-400">{locality}</p>
-      {aggregatedDiscountInfoV3?.header && (
-        <p className="mt-4 text-green-700 font-semibold">
-          {aggregatedDiscountInfoV3?.header}{" "}
-          {aggregatedDiscountInfoV3?.subHeader}
-        </p>
-      )}
-      {description && <p className="mt-4 text-gray-700">{description}</p>}
     </div>
   );
 };

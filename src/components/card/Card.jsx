@@ -13,7 +13,7 @@ const Card = ({ data }) => {
   } = data || {};
 
   return (
-    <div className="rounded-xl cursor-pointer shadow-lg w-[24%] overflow-hidden bg-white hover:scale-105 transition-transform duration-200">
+    <div className="rounded-xl cursor-pointer shadow-lg w-full overflow-hidden bg-white hover:scale-105 transition-transform duration-200">
       <div className="relative">
         <img
           src={`${Image_Url}${cloudinaryImageId}`}
