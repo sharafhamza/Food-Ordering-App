@@ -67,7 +67,7 @@ const Body = () => {
           className="bg-orange-500 text-white p-2 rounded-r-full hover:bg-orange-600 transition"
           onClick={handleSearch}
         >
-          <Search size={20} />
+          <Search size={22} />
         </button>
       </div>
       <div className="flex flex-wrap gap-x-3 gap-y-5">
