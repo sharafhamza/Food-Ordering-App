@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import OnMindSlider from "../components/onMindSlider/onMindSlider";
 import Card from "./card/Card";
 import { Search } from "lucide-react";
+import ShimmerCard from "./shimmerCard/ShimmerCard";
 
 const Body = () => {
   const [resInfo, setResInfo] = useState([]);
   const [cardData, setCardData] = useState([]);
   const [filterData, setFilterData] = useState([]);
   const [seartext, setSearchText] = useState("");
-
+  const [loading, setLoading] = useState(true);
   const handleInputChange = (e) => {
     setSearchText(e.target.value); // store user input in state
   };
@@ -30,6 +31,7 @@ const Body = () => {
       json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle
         ?.restaurants || []
     );
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -59,19 +61,27 @@ const Body = () => {
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           placeholder="Search..."
-          className="flex-grow px-4 py-2 border border-gray-300 rounded-l-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+          className="flex-grow px-4 py-2 border border-gray-300 rounded-l-full focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
         />
         <button
-          className="bg-blue-600 text-white p-2 rounded-r-full hover:bg-blue-700 transition"
+          className="bg-orange-500 text-white p-2 rounded-r-full hover:bg-orange-600 transition"
           onClick={handleSearch}
         >
           <Search size={20} />
         </button>
       </div>
       <div className="flex flex-wrap gap-x-3 gap-y-5">
-        {filterData.map((card, index) => (
-          <Card data={card?.info} />
-        ))}
+        {loading ? (
+          Array(8)
+            .fill(0)
+            .map((_, i) => <ShimmerCard key={i} />)
+        ) : filterData.length === 0 ? (
+          <p>Search item not found</p>
+        ) : (
+          filterData.map((card) => (
+            <Card key={card?.info?.id} data={card?.info} />
+          ))
+        )}
       </div>
     </div>
   );

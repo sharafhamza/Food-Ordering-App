@@ -21,7 +21,7 @@ const Card = ({ data }) => {
         />
         {aggregatedDiscountInfoV3?.header && (
           <div className="absolute bottom-0 bg-black bg-opacity-60 text-white text-sm px-2 py-1 font-semibold w-full text-center">
-            {aggregatedDiscountInfoV3?.header}{" "}
+            {aggregatedDiscountInfoV3?.header}
             {aggregatedDiscountInfoV3?.subHeader || ""}
           </div>
         )}
