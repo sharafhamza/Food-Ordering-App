@@ -1,10 +1,16 @@
-import Header from "./components/Header/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LayOut from "./LayOut";
 import Body from "./components/Body";
 function App() {
   return (
     <>
-      <Header />
-      <Body />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LayOut />}>
+            <Route index element={<Body />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
