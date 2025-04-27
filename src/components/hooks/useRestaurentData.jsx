@@ -12,9 +12,8 @@ const useRestaurentData = (resId) => {
     const data = await fetch(Single_Url + resId);
     const json = await data.json();
     setResInfo(json?.data?.cards[2].card?.card?.info);
-
-    return resInfo;
   }
+  return resInfo;
 };
 
 export default useRestaurentData;

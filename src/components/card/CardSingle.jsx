@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Single_Url, Image_Url } from "../../utils/constant"; // Assuming you have Image_Url
 import { useParams } from "react-router-dom";
+import useRestaurentData from "../hooks/useRestaurentData";
 
 const CardSingle = () => {
-  const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
 
-  const fetchData = async () => {
-    const data = await fetch(Single_Url + resId);
-    const json = await data.json();
-    setResInfo(json?.data?.cards[2]?.card?.card);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [resId]);
+  const resInfo = useRestaurentData(resId);
+  console.log(resInfo);
 
   if (!resInfo) {
     return (
@@ -31,7 +24,7 @@ const CardSingle = () => {
     locality,
     aggregatedDiscountInfoV3,
     costForTwoMessage,
-  } = resInfo?.info || {};
+  } = resInfo || {};
 
   return (
     <div className="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-xl shadow-md">
