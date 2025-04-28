@@ -11,7 +11,7 @@ const useRestaurentData = (resId) => {
   async function fetchData() {
     const data = await fetch(Single_Url + resId);
     const json = await data.json();
-    setResInfo(json?.data?.cards[2].card?.card?.info);
+    setResInfo(json?.data);
   }
   return resInfo;
 };
