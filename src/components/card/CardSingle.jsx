@@ -3,6 +3,8 @@ import { Single_Url, Image_Url } from "../../utils/constant"; // Assuming you ha
 import { useParams } from "react-router-dom";
 import useRestaurentData from "../hooks/useRestaurentData";
 import { GiRoundStar } from "react-icons/gi";
+import { GoTriangleDown } from "react-icons/go";
+
 const CardSingle = () => {
   const { resId } = useParams();
 
@@ -36,7 +38,7 @@ const CardSingle = () => {
             <span className="font-bold">
               <span className="flex items-center gap-x-2 text-base">
                 <div className="bg-green-600 w-5 h-5 rounded-full flex items-center justify-center">
-                  <GiRoundStar className="text-white z-10" />
+                  <GiRoundStar className="text-white z-10 text-sm" />
                 </div>
                 4.3 (734 ratings)
               </span>
@@ -46,30 +48,33 @@ const CardSingle = () => {
           <span>₹400 for two</span>
         </div>
 
-        <div class="text-sm text-orange-600 font-bold">
+        <div class="text-sm text-orange-600 font-bold pb-2">
           <a href="#" class="hover:underline">
             Burgers, Biryani
           </a>
         </div>
 
-        <div class="flex items-center space-x-2 text-sm text-black">
-          <div class="flex items-center gap-2">
+        <div class="flex items-center space-x-2 text-sm text-black ">
+          <div class="flex items-center gap-2 h-5">
             <div className="flex flex-col justify-center w-2">
               <div class="w-[7px] h-[7px] mx-auto rounded-full bg-gray-400 mr-2"></div>
               <div className="w-[1px] mx-auto h-6 bg-gray-400"></div>
               <div class="w-[7px] h-[7px] mx-auto rounded-full bg-gray-400 mr-2"></div>
             </div>
-            <div>
+            <div className="flex flex-col gap-1">
               <div>
-                <span className="font-semibold">Outlet</span>
-                <span class="font-semibold">Girish Park</span>
+                <span className="font-semibold flex gap-2">
+                  Outlet
+                  <span className="flex items-center text-gray-500">
+                    KOLKATA MUNICIPAL CORPORATION
+                    <GoTriangleDown className="text-orange-600" />
+                  </span>
+                </span>
               </div>
-              <span class="ml-1 font-semibold">40-45 mins</span>
+              <span className="font-semibold">40-45 mins</span>
             </div>
           </div>
         </div>
-
-        <div class="text-sm font-semibold text-gray-700">35-40 mins</div>
       </div>
     </div>
   );
