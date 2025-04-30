@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        custom: ["nova", "sans-serif"], // Add your custom font here
+        girlroy: ["gilroy", "sans-serif"],
       },
       colors: {
         menu: "#3d4152",

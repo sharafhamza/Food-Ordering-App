@@ -3,28 +3,27 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "nova";
-  src: url("./fonts/proximanova-regular.otf") format("truetype"); /* Adjust the path as needed */
+  font-family: "gilroy";
+  src: url("./fonts/Gilroy-Regular.ttf") format("truetype");
   font-weight: 400;
-  font-style: normal;
 }
+
 @font-face {
-  font-family: "nova";
-  src: url("./fonts/proximanova-bold.otf") format("truetype");
+  font-family: "gilroy";
+  src: url("./fonts/Gilroy-Bold.ttf") format("truetype");
   font-weight: 700;
-  font-style: normal;
 }
+
 @font-face {
-  font-family: "nova";
-  src: url("./fonts/proximanova-medium.otf") format("truetype");
+  font-family: "gilroy";
+  src: url("./fonts/Gilroy-Medium.ttf") format("truetype");
   font-weight: 500;
-  font-style: normal;
 }
+
 @font-face {
-  font-family: "nova";
-  src: url("./fonts/proximanova-semibold.otf") format("truetype");
+  font-family: "gilroy";
+  src: url("./fonts/Gilroy-SemiBold.ttf") format("truetype");
   font-weight: 600;
-  font-style: normal;
 }
 
 .single-box {
