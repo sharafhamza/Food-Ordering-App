@@ -4,11 +4,17 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 const DiscountList = () => {
   const [value, setValue] = useState(0);
 
-  const handlePrev = () => {
-    console.log("hello");
-  };
   const handleNext = () => {
-    console.log("hello");
+    if (value > 60) {
+      return;
+    }
+    setValue((prev) => prev + 20);
+  };
+  const handlePrev = () => {
+    if (value <= 0) {
+      return setValue(0);
+    }
+    setValue((prev) => prev - 20);
   };
 
   const discountOffers = [
@@ -47,21 +53,22 @@ const DiscountList = () => {
         </div>
         <div
           className={`w-8 h-8 ${
-            value >= 230 ? "bg-gray-100 text-gray-400" : "bg-gray-200 "
+            value >= 80 ? "bg-gray-100 text-gray-400" : "bg-gray-200 "
           }  rounded-full flex items-center justify-center`}
           onClick={handleNext}
         >
           <FaArrowRight />
         </div>
       </div>
-      <div className="flex overflow-hidden gap-3 scrollbar-hide">
-        {discountOffers.map((offer, index) => (
-          <DiscountSlider
-            key={offer.code}
-            label={offer.label}
-            code={offer.code}
-          />
-        ))}
+      <div className="overflow-hidden gap-3 mt-3">
+        <div
+          className="flex duration-300 gap-4"
+          style={{ translate: `-${value}%` }}
+        >
+          {discountOffers.map((offer, index) => (
+            <DiscountSlider key={index} label={offer.label} code={offer.code} />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -7,8 +7,10 @@ const OnMindSlider = ({ resInfo }) => {
   const handleNext = () => {
     if (value == "196") {
       setValue((prev) => prev + 34);
+      console.log(value);
     } else {
       value >= 230 ? "" : setValue((prev) => prev + 49);
+      console.log(value);
     }
   };
   const handlePrev = () => {
