@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useRestaurentData from "../hooks/useRestaurentData";
 
 import CardTopDetails from "./CardTopDetails";
+import DiscountList from "./DiscountList";
 const CardSingle = () => {
   const { resId } = useParams();
 
@@ -26,7 +27,12 @@ const CardSingle = () => {
     costForTwoMessage,
   } = resInfo?.cards[2].card?.card?.info || {};
 
-  return <CardTopDetails />;
+  return (
+    <>
+      <CardTopDetails />
+      <DiscountList />
+    </>
+  );
 };
 
 export default CardSingle;
