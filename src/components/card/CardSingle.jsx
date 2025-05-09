@@ -4,6 +4,7 @@ import useRestaurentData from "../hooks/useRestaurentData";
 
 import CardTopDetails from "./CardTopDetails";
 import DiscountList from "./DiscountList";
+import Filter from "./filter/Filter";
 const CardSingle = () => {
   const { resId } = useParams();
 
@@ -28,10 +29,11 @@ const CardSingle = () => {
   } = resInfo?.cards[2].card?.card?.info || {};
 
   return (
-    <>
+    <div className="max-w-4xl mx-auto">
       <CardTopDetails />
       <DiscountList />
-    </>
+      <Filter />
+    </div>
   );
 };
 
