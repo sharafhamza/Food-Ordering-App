@@ -52,7 +52,6 @@ const CardTopDetails = () => {
           </div>
         </div>
       </div>
-      ;
     </>
   );
 };

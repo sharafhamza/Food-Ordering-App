@@ -5,6 +5,7 @@ import useRestaurentData from "../hooks/useRestaurentData";
 import CardTopDetails from "./CardTopDetails";
 import DiscountList from "./DiscountList";
 import Filter from "./filter/Filter";
+import TopPicks from "./TopPicks/TopPicks";
 const CardSingle = () => {
   const { resId } = useParams();
 
@@ -33,6 +34,7 @@ const CardSingle = () => {
       <CardTopDetails />
       <DiscountList />
       <Filter />
+      <TopPicks />
     </div>
   );
 };
