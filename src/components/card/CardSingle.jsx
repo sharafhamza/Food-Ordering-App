@@ -6,6 +6,7 @@ import CardTopDetails from "./CardTopDetails";
 import DiscountList from "./DiscountList";
 import Filter from "./filter/Filter";
 import TopPicks from "./TopPicks/TopPicks";
+import Accordion from "./Accordion/Accordion";
 const CardSingle = () => {
   const { resId } = useParams();
 
@@ -35,6 +36,7 @@ const CardSingle = () => {
       <DiscountList />
       <Filter />
       <TopPicks />
+      <Accordion />
     </div>
   );
 };
