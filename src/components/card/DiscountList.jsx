@@ -6,7 +6,6 @@ const DiscountList = ({ offersInfo }) => {
   console.log(offersInfo);
 
   const handleNext = () => {
-    if (a) return;
     setValue((prev) => prev + 20);
   };
   const handlePrev = () => {
