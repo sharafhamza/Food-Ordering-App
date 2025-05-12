@@ -3,14 +3,20 @@ import React, { useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 const DiscountList = ({ offersInfo }) => {
   const [value, setValue] = useState(0);
-  console.log(offersInfo);
+  const [count, setCount] = useState(0);
 
   const handleNext = () => {
+    if (offersInfo.length <= count) {
+      return;
+    }
+
+    setCount((prev) => prev + 1);
     setValue((prev) => prev + 20);
   };
   const handlePrev = () => {
     if (value <= 0) {
-      return setValue(0);
+      setValue(0);
+      setCount((prev) => prev - 1);
     }
     setValue((prev) => prev - 20);
   };
