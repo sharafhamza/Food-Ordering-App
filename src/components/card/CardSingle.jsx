@@ -24,16 +24,26 @@ const CardSingle = () => {
     cuisines,
     avgRating,
     sla,
-    cloudinaryImageId,
-    locality,
     aggregatedDiscountInfoV3,
+    totalRatingsString,
     costForTwoMessage,
-  } = resInfo?.cards[2].card?.card?.info || {};
+    areaName,
+  } = resInfo?.cards[2]?.card?.card?.info || {};
+  const offersInfo =
+    resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers || {};
 
   return (
     <div className="max-w-4xl mx-auto">
-      <CardTopDetails />
-      <DiscountList />
+      <CardTopDetails
+        name={name}
+        cuisines={cuisines}
+        avgRating={avgRating}
+        sla={sla}
+        costForTwoMessage={costForTwoMessage}
+        areaName={areaName}
+        totalRatingsString={totalRatingsString}
+      />
+      <DiscountList offersInfo={offersInfo} />
       <Filter />
       <TopPicks />
       <AccordionParent />
