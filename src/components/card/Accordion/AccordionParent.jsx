@@ -1,6 +1,9 @@
-import React from "react";
-import Accordion from "./Accordion/Accordion";
+import React, { useState } from "react";
+import Accordion from "./Accordion";
+
 const AccordionParent = () => {
+  const [openIndex, setOpenIndex] = useState(null); // Track which accordion is open
+
   const accordionData = [
     {
       title: "Veg Pizza",
@@ -82,15 +85,46 @@ const AccordionParent = () => {
 
   return (
     <div>
-      {accordionData.map((item, index) => {
-        <Accordion
-          key={item.id}
-          name={item.name}
-          price={item.price}
-          description={item.description}
-          image={item.image}
-        />;
-      })}
+      {accordionData.map((section, index) => (
+        <div key={index}>
+          <div
+            className="flex items-center justify-between cursor-pointer py-2"
+            onClick={() =>
+              setOpenIndex((prevIndex) => (prevIndex === index ? null : index))
+            }
+          >
+            <h2 className="font-bold text-black text-lg">{section.title}</h2>
+            <svg
+              className={`w-4 h-4 text-gray-500 transition-transform ${
+                openIndex === index ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </div>
+
+          {/* Render accordions only if this section is open */}
+          {openIndex === index &&
+            section.items.map((pizza) => (
+              <Accordion
+                key={pizza.id}
+                name={pizza.name}
+                price={pizza.price}
+                description={pizza.description}
+                image={pizza.image}
+                open={true}
+              />
+            ))}
+        </div>
+      ))}
     </div>
   );
 };

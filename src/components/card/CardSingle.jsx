@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useRestaurentData from "../hooks/useRestaurentData";
-
 import CardTopDetails from "./CardTopDetails";
 import DiscountList from "./DiscountList";
 import Filter from "./filter/Filter";
 import TopPicks from "./TopPicks/TopPicks";
+import AccordionParent from "./Accordion/AccordionParent";
 
 const CardSingle = () => {
   const { resId } = useParams();
@@ -36,6 +36,7 @@ const CardSingle = () => {
       <DiscountList />
       <Filter />
       <TopPicks />
+      <AccordionParent />
     </div>
   );
 };
