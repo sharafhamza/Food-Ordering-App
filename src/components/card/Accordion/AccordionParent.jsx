@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Accordion from "./Accordion";
+import { FaChevronDown } from "react-icons/fa6";
 
 const AccordionParent = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(false);
   const accordionData = [
     {
       title: "Veg Pizza",
@@ -37,7 +38,23 @@ const AccordionParent = () => {
     },
   ];
 
-  return <div></div>;
+  return (
+    <div>
+      {accordionData.map((section, index) => (
+        <div key={index}>
+          {/* Showing title here */}
+          <h2
+            className="border-t-[14px] px-4 py-4 text-lg font-bold cursor-pointer flex justify-between items-center"
+            onClick={() => setOpenIndex((prev) => !prev)}
+          >
+            {section.title}
+            <FaChevronDown className="text-base" />
+          </h2>
+          {openIndex ? <Accordion items={section.items} /> : ""}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default AccordionParent;

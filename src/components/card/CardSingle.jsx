@@ -6,12 +6,12 @@ import DiscountList from "./DiscountList";
 import Filter from "./filter/Filter";
 import TopPicks from "./TopPicks/TopPicks";
 import AccordionParent from "./Accordion/AccordionParent";
+import Accordion from "./Accordion/Accordion";
 
 const CardSingle = () => {
   const { resId } = useParams();
 
   const resInfo = useRestaurentData(resId);
-  console.log(resInfo);
 
   if (!resInfo) {
     return (
@@ -46,6 +46,7 @@ const CardSingle = () => {
       <DiscountList offersInfo={offersInfo} />
       <Filter />
       <TopPicks />
+      <AccordionParent />
       <AccordionParent />
     </div>
   );

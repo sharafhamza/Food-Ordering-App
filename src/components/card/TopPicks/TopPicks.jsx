@@ -5,36 +5,36 @@ const TopPicks = () => {
   const [value, setValue] = useState(0);
   const [count, setCount] = useState(2);
 
-  // const imageArray = [
-  //   {
-  //     image:
-  //       "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks/KPan1",
-  //   },
-  //   {
-  //     image:
-  //       "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks/RSPan2",
-  //   },
-  //   {
-  //     image:
-  //       "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks/SFPa3",
-  //   },
-  //   {
-  //     image:
-  //       "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks2024/167086363D.png",
-  //   },
-  //   {
-  //     image:
-  //       "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks/EvMp",
-  //   },
-  //   {
-  //     image:
-  //       "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks2024/170329290E.png",
-  //   },
-  //   {
-  //     image:
-  //       "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks/EvMp",
-  //   },
-  // ];
+  const imageArray = [
+    {
+      image:
+        "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks/KPan1",
+    },
+    {
+      image:
+        "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks/RSPan2",
+    },
+    {
+      image:
+        "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks/SFPa3",
+    },
+    {
+      image:
+        "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks2024/167086363D.png",
+    },
+    {
+      image:
+        "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks/EvMp",
+    },
+    {
+      image:
+        "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks2024/170329290E.png",
+    },
+    {
+      image:
+        "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/TopPicks/EvMp",
+    },
+  ];
 
   const handleNext = () => {
     if (imageArray.length <= count) {
