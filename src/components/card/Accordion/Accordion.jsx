@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaChevronDown } from "react-icons/fa6";
 import AccordionItem from "./AccordionItem";
 
-const Accordion = ({ items }) => {
-  return (
-    <>
-      {items.map((item) => (
-        <AccordionItem name={item.name} price={item.price} key={item.id} />
-      ))}
-    </>
-  );
+const Accordion = ({ accordionData }) => {
+  console.log(accordionData);
+
+  return <div>Hi</div>;
 };
 
 export default Accordion;

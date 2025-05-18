@@ -5,7 +5,6 @@ import CardTopDetails from "./CardTopDetails";
 import DiscountList from "./DiscountList";
 import Filter from "./filter/Filter";
 import TopPicks from "./TopPicks/TopPicks";
-import AccordionParent from "./Accordion/AccordionParent";
 import Accordion from "./Accordion/Accordion";
 
 const CardSingle = () => {
@@ -31,6 +30,8 @@ const CardSingle = () => {
   } = resInfo?.cards[2]?.card?.card?.info || {};
   const offersInfo =
     resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers || {};
+  const accordionData =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || {};
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -46,8 +47,7 @@ const CardSingle = () => {
       <DiscountList offersInfo={offersInfo} />
       <Filter />
       <TopPicks />
-      <AccordionParent />
-      <AccordionParent />
+      <Accordion accordionData={accordionData} />
     </div>
   );
 };
