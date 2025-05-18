@@ -11,6 +11,7 @@ const CardSingle = () => {
   const { resId } = useParams();
 
   const resInfo = useRestaurentData(resId);
+  const [newAccordionData, setnewAccordionData] = useState(false);
 
   if (!resInfo) {
     return (
@@ -30,9 +31,15 @@ const CardSingle = () => {
   } = resInfo?.cards[2]?.card?.card?.info || {};
   const offersInfo =
     resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers || {};
-  const accordionData =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || {};
+  const allAccordionData =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
 
+  // ✅ Filter only the ItemCategory types
+  const accordionData = allAccordionData.filter(
+    (item) =>
+      item?.card?.card["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
   return (
     <div className="max-w-4xl mx-auto">
       <CardTopDetails
