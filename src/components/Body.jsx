@@ -66,7 +66,7 @@ const Body = () => {
         />
         <button
           className="bg-orange-500 text-white p-2 rounded-r-full hover:bg-orange-600 transition"
-          onClick={handleSearch}
+          onClick={handleSgearch}
         >
           <Search size={22} />
         </button>
