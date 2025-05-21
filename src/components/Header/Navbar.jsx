@@ -5,8 +5,9 @@ import { BiSolidOffer } from "react-icons/bi";
 import { IoHelpBuoyOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { IoMdCart } from "react-icons/io";
-
+import { useSelector } from "react-redux";
 const Navbar = () => {
+  const cart = useSelector((store) => store.cart.items);
   const navItems = [
     {
       name: "Swiggy Corporate",
@@ -37,6 +38,21 @@ const Navbar = () => {
     <ul className="flex gap-8">
       {navItems.map((item, index) => {
         const IconComponent = item.icon;
+        if (item.name === "Cart") {
+          return (
+            <li
+              key={index}
+              className="flex cursor-pointer items-center text-menu"
+            >
+              <div className="flex gap-1 items-center">
+                <IconComponent size={20} />
+                <span className="text-base font-medium">
+                  {item.name} ({cart.length})
+                </span>
+              </div>
+            </li>
+          );
+        }
         return (
           <li
             key={index}

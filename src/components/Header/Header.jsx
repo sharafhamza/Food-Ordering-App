@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { IoIosArrowDown } from "react-icons/io";
-
+import { useSelector } from "react-redux";
 import { LOGO } from "../../utils/constant";
 import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <div className="shadow-lg shadow-[#ddd]/40">
