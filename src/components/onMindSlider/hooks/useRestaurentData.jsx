@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Single_Url } from "../../utils/constant";
+import { Single_Url } from "../../../utils/constant";
 
 const useRestaurentData = (resId) => {
   const [resInfo, setResInfo] = useState(null);

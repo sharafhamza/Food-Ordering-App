@@ -1,13 +1,8 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { addItem } from "../../store/cartSlice";
-const FoodItem = ({ info }) => {
+
+const FoodItem = ({ info, handleAdd }) => {
   const { name, price, description, ratings, imageId } = info;
 
-  const dispatch = useDispatch();
-  const handleAdd = (info) => {
-    dispatch(addItem(info));
-  };
   return (
     <div className="px-5 cursor-pointer border-b border-gray-300 pt-8 pb-[60px]">
       <div className="rounded-lg flex items-start justify-between bg-white gap-x-6">
@@ -44,14 +39,16 @@ const FoodItem = ({ info }) => {
             className="w-full h-full rounded-2xl"
             alt={name}
           />
-          <div
-            className="absolute bottom-0 right-0 -translate-x-[14px] translate-y-4"
-            onClick={() => handleAdd(info)}
-          >
-            <button className="text-green-500 font-bold text-lg w-[120px] py-2 bg-white rounded-md border">
-              ADD
-            </button>
-          </div>
+          {handleAdd && (
+            <div
+              className="absolute bottom-0 right-0 -translate-x-[14px] translate-y-4"
+              onClick={() => handleAdd(info)}
+            >
+              <button className="text-green-500 font-bold text-lg w-[120px] py-2 bg-white rounded-md border">
+                ADD
+              </button>
+            </div>
+          )}
           <p className="mt-5 text-center font-semibold text-gray-500 text-sm">
             Customisable
           </p>

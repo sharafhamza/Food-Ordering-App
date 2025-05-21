@@ -6,6 +6,7 @@ import { IoHelpBuoyOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { IoMdCart } from "react-icons/io";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const cart = useSelector((store) => store.cart.items);
   const navItems = [
@@ -32,6 +33,7 @@ const Navbar = () => {
     {
       name: "Cart",
       icon: IoMdCart,
+      link: "/cart",
     },
   ];
   return (
@@ -40,17 +42,19 @@ const Navbar = () => {
         const IconComponent = item.icon;
         if (item.name === "Cart") {
           return (
-            <li
-              key={index}
-              className="flex cursor-pointer items-center text-menu"
-            >
-              <div className="flex gap-1 items-center">
-                <IconComponent size={20} />
-                <span className="text-base font-medium">
-                  {item.name} ({cart.length})
-                </span>
-              </div>
-            </li>
+            <Link to="cart">
+              <li
+                key={index}
+                className="flex cursor-pointer items-center text-menu"
+              >
+                <div className="flex gap-1 items-center">
+                  <IconComponent size={20} />
+                  <span className="text-base font-medium">
+                    {item.name} ({cart.length})
+                  </span>
+                </div>
+              </li>
+            </Link>
           );
         }
         return (

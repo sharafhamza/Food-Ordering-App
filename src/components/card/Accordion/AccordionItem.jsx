@@ -2,8 +2,14 @@ import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
 import FoodItem from "./FoodItem";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../store/cartSlice";
 
 const AccordionItem = ({ title, items, showItems, onToggle }) => {
+  const dispatch = useDispatch();
+  const handleAdd = (info) => {
+    dispatch(addItem(info));
+  };
   return (
     <>
       <div
@@ -18,20 +24,11 @@ const AccordionItem = ({ title, items, showItems, onToggle }) => {
       <div>
         {items.map((item, index) => {
           const info = item?.card?.info;
-          const { name, price, description, imageId, ratings } = info || {};
 
           if (!showItems) return;
           return (
             <>
-              <FoodItem
-                info={info}
-                name={name}
-                price={price}
-                description={description}
-                imageId={imageId}
-                rating={ratings}
-                key={index}
-              />
+              <FoodItem info={info} handleAdd={handleAdd} />
             </>
           );
         })}

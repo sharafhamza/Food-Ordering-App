@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="shadow-lg shadow-[#ddd]/40">
+    <div className="shadow-lg shadow-[#ddd]/40 fixed top-0 left-0 bg-white w-full z-50">
       <div className="w-[70%] mx-auto font-custom flex items-center justify-between ">
         <div className="flex gap-8 py-4 ">
           <div className="w-20">

@@ -12,7 +12,7 @@ const CardTopDetails = ({
 }) => {
   return (
     <>
-      <div className="single-box max-w-4xl mx-auto mt-6 p-5 rounded-3xl">
+      <div className="single-box max-w-4xl mx-auto p-5 rounded-3xl mt-[100px]">
         <div className="mx-auto border-2 bg-white rounded-3xl  p-5 flex flex-col space-y-3 ">
           <h2 className="text-2xl font-bold">{name}</h2>
 

@@ -3,6 +3,7 @@ import LayOut from "./components/LayOut";
 import Body from "./components/Body";
 import ErrorPage from "./components/Error/ErrorPage";
 import CardSingle from "./components/card/CardSingle";
+import Cart from "./components/Cart";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +19,10 @@ function App() {
         {
           path: "restaurents/:resId",
           element: <CardSingle />,
+        },
+        {
+          path: "cart",
+          element: <Cart />,
         },
       ],
     },
