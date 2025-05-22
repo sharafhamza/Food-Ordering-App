@@ -18,7 +18,7 @@ const OnMindSlider = ({ resInfo }) => {
   };
 
   return (
-    <div className=" w-[970px]  mx-auto mt-12">
+    <div className=" w-[970px]  mx-auto mt-[120px]">
       <div className="flex gap-4 justify-end cursor-pointer">
         <div
           className={`w-8 h-8 ${
